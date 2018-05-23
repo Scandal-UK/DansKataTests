@@ -27,9 +27,21 @@ namespace RomanNumeralsKata
       output.Should().Be(1);
     }
 
+    [Fact]
+    public void GivenV_ShouldReturn5()
+    {
+      var output = RomanToDecimal("V");
+      output.Should().Be(5);
+    }
+
     public static int RomanToDecimal(string value)
     {
-      return value == "I" ? 1 : 0;
+      switch (value)
+      {
+        case "I": return 1;
+        case "V": return 5;
+        default: return 0;
+      }
     }
   }
 }
