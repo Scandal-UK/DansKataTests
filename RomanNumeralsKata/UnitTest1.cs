@@ -79,6 +79,13 @@ namespace RomanNumeralsKata
         .Should().Be(20);
     }
 
+    [Fact]
+    public void GivenDescendingNumerals_ShouldReturnAddedTotal()
+    {
+      RomanToDecimal("MMVI")
+        .Should().Be(2006);
+    }
+
     public static int RomanToDecimal(string value)
     {
       var numericValue = 0;
