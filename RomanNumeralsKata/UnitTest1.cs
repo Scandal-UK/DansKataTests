@@ -69,12 +69,24 @@ namespace RomanNumeralsKata
         .Should().Be(1000);
     }
 
+    [Fact]
+    public void GivenRepeatedNumerals_ShouldReturnAddedTotal()
+    {
+      RomanToDecimal("III")
+        .Should().Be(3);
+
+      RomanToDecimal("XX")
+        .Should().Be(20);
+    }
+
     public static int RomanToDecimal(string value)
     {
       var numericValue = 0;
+
       if (!string.IsNullOrEmpty(value)) 
       {
-        numericValue = RomanCharacterValue(value[0]);
+        foreach (char c in value)
+          numericValue += RomanCharacterValue(c);
       }
 
       return numericValue;
