@@ -96,6 +96,13 @@ namespace RomanNumeralsKata
         .Should().Be(900);
     }
 
+    [Fact]
+    public void GivenAscendingAndDescendingNumerals_ShouldReturnCorrectTotal()
+    {
+      RomanToDecimal("MCMXLIV")
+        .Should().Be(1944);
+    }
+
     public static int RomanToDecimal(string value)
     {
       var numericValue = 0;
