@@ -109,26 +109,26 @@ namespace RomanNumeralsKata
 
       if (!string.IsNullOrEmpty(value)) 
       {
-        for (int i = 0; i < value.Length; i++)
+        for (int currentIndex = 0; currentIndex < value.Length; currentIndex++)
         {
-          var currentVal = RomanCharacterValue(value[i]);
+          var currentVal = RomanCharacterValue(value[currentIndex]);
 
-          if (i + 1 < value.Length)
+          if (currentIndex == value.Length - 1)
           {
-            var nextVal = RomanCharacterValue(value[i + 1]);
-            if (nextVal > currentVal)
+            numericValue += currentVal;
+          }
+          else
+          {
+            var nextVal = RomanCharacterValue(value[currentIndex + 1]);
+            if (currentVal < nextVal)
             {
               numericValue += nextVal - currentVal;
-              i++;
+              currentIndex++;
             }
             else
             {
               numericValue += currentVal;
             }
-          }
-          else
-          {
-            numericValue += currentVal;
           }
         }
       }
