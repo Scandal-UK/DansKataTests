@@ -119,22 +119,20 @@ namespace RomanNumeralsKata
     private static int NumeralModifier(string sourceNumeral, int currentIndex)
     {
       var currentVal = RomanCharacterValue(sourceNumeral[currentIndex]);
+      var nextVal = 0;
 
-      if (currentIndex == sourceNumeral.Length - 1)
+      if (currentIndex < sourceNumeral.Length - 1)
       {
-        return currentVal;
+        nextVal = RomanCharacterValue(sourceNumeral[currentIndex + 1]);
+      }
+
+      if (nextVal > currentVal)
+      {
+        return -currentVal;
       }
       else
       {
-        var nextVal = RomanCharacterValue(sourceNumeral[currentIndex + 1]);
-        if (currentVal < nextVal)
-        {
-          return -currentVal;
-        }
-        else
-        {
-          return currentVal;
-        }
+        return currentVal;
       }
     }
 
