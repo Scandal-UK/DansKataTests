@@ -86,14 +86,44 @@ namespace RomanNumeralsKata
         .Should().Be(2006);
     }
 
+    [Fact]
+    public void GivenAscendingNumerals_ShouldReturnSubtractedTotal()
+    {
+      RomanToDecimal("IV")
+        .Should().Be(4);
+
+      RomanToDecimal("CM")
+        .Should().Be(900);
+    }
+
     public static int RomanToDecimal(string value)
     {
       var numericValue = 0;
 
       if (!string.IsNullOrEmpty(value)) 
       {
-        foreach (char c in value)
-          numericValue += RomanCharacterValue(c);
+        for (int i = 0; i < value.Length; i++)
+        {
+          var currentVal = RomanCharacterValue(value[i]);
+
+          if (i + 1 < value.Length)
+          {
+            var nextVal = RomanCharacterValue(value[i + 1]);
+            if (nextVal > currentVal)
+            {
+              numericValue += nextVal - currentVal;
+              i++;
+            }
+            else
+            {
+              numericValue += currentVal;
+            }
+          }
+          else
+          {
+            numericValue += currentVal;
+          }
+        }
       }
 
       return numericValue;
