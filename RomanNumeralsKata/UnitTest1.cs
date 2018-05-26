@@ -109,31 +109,33 @@ namespace RomanNumeralsKata
 
       if (!string.IsNullOrEmpty(value)) 
       {
-        for (int currentIndex = 0; currentIndex < value.Length; currentIndex++)
-        {
-          var currentVal = RomanCharacterValue(value[currentIndex]);
-
-          if (currentIndex == value.Length - 1)
-          {
-            numericValue += currentVal;
-          }
-          else
-          {
-            var nextVal = RomanCharacterValue(value[currentIndex + 1]);
-            if (currentVal < nextVal)
-            {
-              numericValue += nextVal - currentVal;
-              currentIndex++;
-            }
-            else
-            {
-              numericValue += currentVal;
-            }
-          }
-        }
+        for (int i = 0; i < value.Length; i++)
+          numericValue += NumeralModifier(value, i);
       }
 
       return numericValue;
+    }
+
+    private static int NumeralModifier(string sourceNumeral, int currentIndex)
+    {
+      var currentVal = RomanCharacterValue(sourceNumeral[currentIndex]);
+
+      if (currentIndex == sourceNumeral.Length - 1)
+      {
+        return currentVal;
+      }
+      else
+      {
+        var nextVal = RomanCharacterValue(sourceNumeral[currentIndex + 1]);
+        if (currentVal < nextVal)
+        {
+          return -currentVal;
+        }
+        else
+        {
+          return currentVal;
+        }
+      }
     }
 
     private static int RomanCharacterValue(char value)
