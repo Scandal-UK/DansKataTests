@@ -50,20 +50,22 @@ namespace StringCalculatorKata
       var total = 0;
 
       if (!string.IsNullOrEmpty(numbers))
-      {
-        var customDelimiter = "";
-        if (numbers.IndexOf("\\") == 0)
-        {
-          customDelimiter = string.Format("\\{0}", numbers.Substring(1, (numbers.IndexOf('\n') - 1)));
-          numbers = numbers.Substring(numbers.IndexOf("\n") + 1);
-        }
-
-        string[] numberArray = Regex.Split(numbers, $"[,\n{customDelimiter}]");
-        foreach (string number in numberArray)
+        foreach (string number in SplitNumbers(numbers))
           total += int.Parse(number);
-      }
 
       return total;
+    }
+
+    private string[] SplitNumbers(string numbers)
+    {
+      var delimiter = ",";
+      if (numbers.IndexOf("\\") == 0)
+      {
+        delimiter = string.Format("\\{0}", numbers.Substring(1, (numbers.IndexOf('\n') - 1)));
+        numbers = numbers.Substring(numbers.IndexOf("\n") + 1);
+      }
+
+      return Regex.Split(numbers, $"[\n{delimiter}]");
     }
   }
 }
