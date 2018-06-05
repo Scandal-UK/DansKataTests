@@ -7,10 +7,8 @@
       var numericValue = 0;
 
       if (!string.IsNullOrEmpty(value))
-      {
         for (int i = 0; i < value.Length; i++)
           numericValue += NumeralModifier(value, i);
-      }
 
       return numericValue;
     }
