@@ -1,4 +1,5 @@
 using FluentAssertions;
+using System;
 using System.Text.RegularExpressions;
 using Xunit;
 
@@ -45,13 +46,22 @@ namespace StringCalculatorKata
       Add("\\;\n1;2").Should().Be(3);
     }
 
+    [Fact(DisplayName = "Given negative number, should throw exception")]
+    public void GivenNegativeNumber_ShouldThrowException()
+    {
+      Action act = () => Add("1,2,-3");
+      act.Should().Throw<Exception>()
+        .WithMessage("Negatives not allowed");
+    }
+
     public int Add(string numbers)
     {
       var total = 0;
 
       if (!string.IsNullOrEmpty(numbers))
         foreach (string number in SplitNumbers(numbers))
-          total += int.Parse(number);
+          if (int.Parse(number) < 0) throw new Exception("Negatives not allowed");
+          else total += int.Parse(number);
 
       return total;
     }
