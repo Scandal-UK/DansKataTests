@@ -7,3 +7,7 @@ It is intended to include only my first attempt at each kata - repeated attempts
 Feel free to comment in the issues!
 
 Feedback is welcome (as long as it is not about the amount of coffee that I make for my co-workers).
+
+- [Roman numerals](/RomanNumeralsKata) - kata source: https://github.com/TDD-Katas/roman-numerals
+- [String calculator](/StringCalculatorKata) - kata source: http://osherove.com/tdd-kata-1/
+
