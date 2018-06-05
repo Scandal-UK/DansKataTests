@@ -1,4 +1,5 @@
 using FluentAssertions;
+using System.Text.RegularExpressions;
 using Xunit;
 
 namespace StringCalculatorKata
@@ -32,16 +33,21 @@ namespace StringCalculatorKata
       Add("8,5,986,12,89").Should().Be(1100);
     }
 
+    [Fact(DisplayName = "Given new line & comma delimiters, should return sum")]
+    public void GivenNewLineAndCommaDelimiters_ShouldReturnSum()
+    {
+      Add("1\n2,3").Should().Be(6);
+    }
+
     public int Add(string numbers)
     {
       var total = 0;
 
       if (!string.IsNullOrEmpty(numbers))
       {
-        if (numbers.IndexOf(',') > 0)
-          foreach (string number in numbers.Split(','))
-            total += int.Parse(number);
-        else total = int.Parse(numbers);
+        string[] numberArray = Regex.Split(numbers, "[,\n]");
+        foreach (string number in numberArray)
+          total += int.Parse(number);
       }
 
       return total;
