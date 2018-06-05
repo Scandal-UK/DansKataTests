@@ -1,4 +1,4 @@
-﻿_Note: I stopped when it said to "stop here if you're a beginner"!_
+﻿_Note: I stopped when it said to "stop here if you're a beginner"! However, I had finished this kata in 20 minutes but I did not have the heart to continue..._
 
 # Before you start
 
