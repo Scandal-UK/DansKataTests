@@ -20,7 +20,12 @@ namespace StringCalculatorKata
 
     public int Add(string numbers)
     {
-      return 0;
+      var total = 0;
+
+      if (!string.IsNullOrEmpty(numbers))
+        total = int.Parse(numbers);
+
+      return total;
     }
   }
 }
