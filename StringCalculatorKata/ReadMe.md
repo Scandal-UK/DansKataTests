@@ -1,4 +1,6 @@
-﻿# Before you start
+﻿_Note: I stopped when it said to "stop here if you're a beginner"!_
+
+# Before you start
 
 - Try not to read ahead
 - Do one task at a time. The trick is to learn to work incrementally.
