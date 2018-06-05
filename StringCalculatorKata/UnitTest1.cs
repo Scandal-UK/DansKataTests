@@ -39,13 +39,26 @@ namespace StringCalculatorKata
       Add("1\n2,3").Should().Be(6);
     }
 
+    [Fact(DisplayName = "Given custom delimiter, should return sum")]
+    public void GivenCustomDelimiter_ShouldReturnSum()
+    {
+      Add("\\;\n1;2").Should().Be(3);
+    }
+
     public int Add(string numbers)
     {
       var total = 0;
 
       if (!string.IsNullOrEmpty(numbers))
       {
-        string[] numberArray = Regex.Split(numbers, "[,\n]");
+        var customDelimiter = "";
+        if (numbers.IndexOf("\\") == 0)
+        {
+          customDelimiter = string.Format("\\{0}", numbers.Substring(1, (numbers.IndexOf('\n') - 1)));
+          numbers = numbers.Substring(numbers.IndexOf("\n") + 1);
+        }
+
+        string[] numberArray = Regex.Split(numbers, $"[,\n{customDelimiter}]");
         foreach (string number in numberArray)
           total += int.Parse(number);
       }
