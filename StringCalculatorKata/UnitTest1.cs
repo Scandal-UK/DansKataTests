@@ -25,6 +25,13 @@ namespace StringCalculatorKata
       Add("8,5").Should().Be(13);
     }
 
+    [Fact(DisplayName = "Given any amount of numbers, should return sum")]
+    public void GivenAnyAmountOfNumbers_ShouldReturnSum()
+    {
+      Add("1,2,3,4").Should().Be(10);
+      Add("8,5,986,12,89").Should().Be(1100);
+    }
+
     public int Add(string numbers)
     {
       var total = 0;
