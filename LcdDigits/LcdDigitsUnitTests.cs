@@ -16,7 +16,13 @@ namespace LcdDigits
     [Fact(DisplayName = "Given zero, should return zero pattern")]
     public void GivenZero_ShouldReturnZeroPattern()
     {
-      LcdDigits.Output(0).Should().Be(LcdDigits.ZERO_PATTERN);
+      LcdDigits.Output(0).Should().Be(LcdDigits.PATTERN_FOR_0);
+    }
+
+    [Fact(DisplayName = "Given 1, should return pattern for 1")]
+    public void GivenOne_ShouldReturnPatternFor1()
+    {
+      LcdDigits.Output(1).Should().Be(LcdDigits.PATTERN_FOR_1);
     }
   }
 }
