@@ -13,5 +13,10 @@ namespace LcdDigits
       act.Should().Throw<ArgumentException>();
     }
 
+    [Fact(DisplayName = "Given zero, should return zero pattern")]
+    public void GivenZero_ShouldReturnZeroPattern()
+    {
+      LcdDigits.Output(0).Should().Be(LcdDigits.ZERO_PATTERN);
+    }
   }
 }
