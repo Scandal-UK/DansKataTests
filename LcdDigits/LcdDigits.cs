@@ -4,12 +4,12 @@
 
   public class LcdDigits
   {
-    public static readonly string PATTERN_FOR_0 =
+    public static readonly string PatternFor0 =
       "._." + Environment.NewLine +
       "|.|" + Environment.NewLine +
       "|_|";
 
-    public static readonly string PATTERN_FOR_1 =
+    public static readonly string PatternFor1 =
       "..." + Environment.NewLine +
       "..|" + Environment.NewLine +
       "..|";
