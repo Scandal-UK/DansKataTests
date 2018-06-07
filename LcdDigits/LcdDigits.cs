@@ -5,22 +5,57 @@
 
   public class LcdDigits
   {
-    private static readonly List<string[]> Pattern = new List<string[]>()
+    public static readonly List<string[]> Pattern = new List<string[]>()
     {
       new string[3] {
-        "._.",
-        "|.|",
+        " _ ",
+        "| |",
         "|_|",
       },
       new string[3] {
-        "...",
-        "..|",
-        "..|",
+        "   ",
+        "  |",
+        "  |",
       },
       new string[3] {
-        "._.",
-        "._|",
-        "|_.",
+        " _ ",
+        " _|",
+        "|_ ",
+      },
+      new string[3] {
+        " _ ",
+        " _|",
+        " _|",
+      },
+      new string[3] {
+        "   ",
+        "|_|",
+        "  |",
+      },
+      new string[3] {
+        " _ ",
+        "|_ ",
+        " _|",
+      },
+      new string[3] {
+        " _ ",
+        "|_ ",
+        "|_|",
+      },
+      new string[3] {
+        " _ ",
+        "  |",
+        "  |",
+      },
+      new string[3] {
+        " _ ",
+        "|_|",
+        "|_|",
+      },
+      new string[3] {
+        " _ ",
+        "|_|",
+        "  |",
       },
     };
 
