@@ -65,11 +65,10 @@
       if (numberToDisplay < 0)
         throw new ArgumentException($"{nameof(numberToDisplay)} cannot be less than zero");
 
-      var wholeNumber = numberToDisplay.ToString();
       var output = new StringBuilder();
 
       for (int lineIndex = 0; lineIndex < 3; lineIndex++)
-        AppendWholeNumberLine(wholeNumber, output, lineIndex);
+        AppendWholeNumberLine(numberToDisplay.ToString(), output, lineIndex);
 
       return output.ToString();
     }
@@ -77,14 +76,9 @@
     private static void AppendWholeNumberLine(string wholeNumber, StringBuilder output, int lineIndex)
     {
       for (int digitIndex = 0; digitIndex < wholeNumber.Length; digitIndex++)
-        AddDigitLine(output, lineIndex, Convert.ToInt32(Char.GetNumericValue(wholeNumber[digitIndex])));
+        output.Append(Pattern[Convert.ToInt32(Char.GetNumericValue(wholeNumber[digitIndex]))][lineIndex]);
 
       if (lineIndex < 2) output.Append(Environment.NewLine);
-    }
-
-    private static void AddDigitLine(StringBuilder output, int lineIndex, int currentValue)
-    {
-      output.Append(Pattern[currentValue][lineIndex]);
     }
   }
 }
