@@ -4,7 +4,10 @@
 
   public class LcdDigits
   {
-    public const string ZERO_PATTERN = "._.\n|.|\n|_|";
+    public static readonly string ZERO_PATTERN =
+      "._." + Environment.NewLine +
+      "|.|" + Environment.NewLine +
+      "|_|";
 
     public static string Output(int number)
     {
