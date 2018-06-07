@@ -69,14 +69,17 @@
       var output = new StringBuilder();
 
       for (int lineIndex = 0; lineIndex < 3; lineIndex++)
-      {
-        for (int digitIndex = 0; digitIndex < wholeNumber.Length; digitIndex++)
-          AddDigitLine(output, lineIndex, Convert.ToInt32(Char.GetNumericValue(wholeNumber[digitIndex])));
-
-        if (lineIndex < 2) output.Append(Environment.NewLine);
-      }
+        AppendWholeNumberLine(wholeNumber, output, lineIndex);
 
       return output.ToString();
+    }
+
+    private static void AppendWholeNumberLine(string wholeNumber, StringBuilder output, int lineIndex)
+    {
+      for (int digitIndex = 0; digitIndex < wholeNumber.Length; digitIndex++)
+        AddDigitLine(output, lineIndex, Convert.ToInt32(Char.GetNumericValue(wholeNumber[digitIndex])));
+
+      if (lineIndex < 2) output.Append(Environment.NewLine);
     }
 
     private static void AddDigitLine(StringBuilder output, int lineIndex, int currentValue)
