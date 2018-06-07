@@ -30,5 +30,14 @@ namespace LcdDigits
         "..|" + Environment.NewLine +
         "..|");
     }
+
+    [Fact(DisplayName = "Given 2, should return pattern for 2")]
+    public void GivenTwo_ShouldReturnPatternFor2()
+    {
+      LcdDigits.Output(2).Should().Be(
+        "._." + Environment.NewLine +
+        "._|" + Environment.NewLine +
+        "|_.");
+    }
   }
 }
