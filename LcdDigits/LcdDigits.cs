@@ -68,18 +68,20 @@
       var wholeNumber = numberToDisplay.ToString();
       var output = new StringBuilder();
 
-      for (int line = 0; line < 3; line++)
+      for (int lineIndex = 0; lineIndex < 3; lineIndex++)
       {
-        for (int number = 0; number < wholeNumber.Length; number++)
-        {
-          var currentValue = Convert.ToInt32(Char.GetNumericValue(wholeNumber[number]));
-          output.Append(Pattern[currentValue][line]);
-        }
+        for (int digitIndex = 0; digitIndex < wholeNumber.Length; digitIndex++)
+          AddDigitLine(output, lineIndex, Convert.ToInt32(Char.GetNumericValue(wholeNumber[digitIndex])));
 
-        if (line < 2) output.Append(Environment.NewLine);
+        if (lineIndex < 2) output.Append(Environment.NewLine);
       }
 
       return output.ToString();
+    }
+
+    private static void AddDigitLine(StringBuilder output, int lineIndex, int currentValue)
+    {
+      output.Append(Pattern[currentValue][lineIndex]);
     }
   }
 }
