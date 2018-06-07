@@ -21,14 +21,7 @@
         throw new ArgumentException($"{nameof(number)} cannot be less than zero");
       }
 
-      if (number == 1)
-      {
-        return PATTERN_FOR_1;
-      }
-      else
-      {
-        return PATTERN_FOR_0;
-      }
+      return string.Join(Environment.NewLine, (number == 1) ? PatternFor1 : PatternFor0);
     }
   }
 }

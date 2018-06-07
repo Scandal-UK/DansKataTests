@@ -13,16 +13,22 @@ namespace LcdDigits
       act.Should().Throw<ArgumentException>();
     }
 
-    [Fact(DisplayName = "Given zero, should return zero pattern")]
-    public void GivenZero_ShouldReturnZeroPattern()
+    [Fact(DisplayName = "Given 0, should return pattern for 0")]
+    public void GivenZero_ShouldReturnPatternFor0()
     {
-      LcdDigits.Output(0).Should().Be(LcdDigits.PATTERN_FOR_0);
+      LcdDigits.Output(0).Should().Be(
+        "._." + Environment.NewLine +
+        "|.|" + Environment.NewLine +
+        "|_|");
     }
 
     [Fact(DisplayName = "Given 1, should return pattern for 1")]
     public void GivenOne_ShouldReturnPatternFor1()
     {
-      LcdDigits.Output(1).Should().Be(LcdDigits.PATTERN_FOR_1);
+      LcdDigits.Output(1).Should().Be(
+        "..." + Environment.NewLine +
+        "..|" + Environment.NewLine +
+        "..|");
     }
   }
 }
