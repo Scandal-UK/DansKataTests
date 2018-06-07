@@ -102,5 +102,14 @@ namespace LcdDigits
         "|_|" + Environment.NewLine +
         "  |");
     }
+
+    [Fact(DisplayName = "Given 10, should return pattern for 10")]
+    public void Given10_ShouldReturnPatternFor10()
+    {
+      LcdDigits.Output(10).Should().Be(
+        "    _ " + Environment.NewLine +
+        "  || |" + Environment.NewLine +
+        "  ||_|");
+    }
   }
 }
