@@ -1,9 +1,9 @@
-using FluentAssertions;
-using Xunit;
-
 namespace RomanNumeralsKata
 {
-  public class UnitTest1
+  using FluentAssertions;
+  using Xunit;
+
+  public class RomanNumeralTests
   {
     [Fact(DisplayName = "Given null, should return zero")]
     public void GivenNull_ShouldReturnZero()

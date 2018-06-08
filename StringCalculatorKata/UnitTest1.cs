@@ -4,7 +4,7 @@ namespace StringCalculatorKata
   using FluentAssertions;
   using Xunit;
 
-  public class UnitTest1
+  public class StringCalculatorTests
   {
     [Fact(DisplayName = "Given empty string, should return zero")]
     public void GivenEmptyString_ShouldReturnZero()

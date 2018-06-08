@@ -4,7 +4,7 @@ namespace LcdDigits
   using FluentAssertions;
   using Xunit;
 
-  public class LcdDigitsUnitTests
+  public class LcdDigitsTests
   {
     [Fact(DisplayName = "Given negative number, should throw argument exception")]
     public void GivenNegativeNumber_ShouldThrowArgumentException()
