@@ -10,4 +10,6 @@ Feedback is welcome (as long as it is not about the amount of coffee that I make
 
 - [Roman numerals](/RomanNumeralsKata) - kata source: https://github.com/TDD-Katas/roman-numerals
 - [String calculator](/StringCalculatorKata) - kata source: http://osherove.com/tdd-kata-1/
+- [LCD Digits](/LcdDigits) - kata source: https://github.com/garora/TDD-Katas/blob/master/KatasReadme.md
+
 

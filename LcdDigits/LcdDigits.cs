@@ -76,12 +76,12 @@
     private static void AppendWholeNumberLine(string wholeNumber, StringBuilder output, int lineIndex)
     {
       for (int digitIndex = 0; digitIndex < wholeNumber.Length; digitIndex++)
-        output.Append(AppendDigitLine(wholeNumber[digitIndex], digitIndex, lineIndex));
+        output.Append(AppendDigitLine(wholeNumber[digitIndex], lineIndex));
 
       if (lineIndex < 2) output.Append(Environment.NewLine);
     }
 
-    private static string AppendDigitLine(char value, int digitIndex, int lineIndex)
+    private static string AppendDigitLine(char value, int lineIndex)
     {
       var patternIndex = Convert.ToInt32(Char.GetNumericValue(value));
       return Pattern[patternIndex][lineIndex];
