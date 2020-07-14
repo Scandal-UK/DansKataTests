@@ -18,5 +18,12 @@ namespace GreeterKata
       Greeter.Greet("  Bob ")
         .Should().Be("Hello Bob.");
     }
+
+    [Fact]
+    public void GivenLowerCase_ShouldCapitiliseFirstCharacter()
+    {
+      Greeter.Greet("bob")
+        .Should().Be("Hello Bob.");
+    }
   }
 }
