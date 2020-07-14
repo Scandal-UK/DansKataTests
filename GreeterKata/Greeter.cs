@@ -18,6 +18,8 @@
         greeting = "Good morning";
       else if (this.CurrentTime.Hour >= 18 && this.CurrentTime.Hour < 22)
         greeting = "Good evening";
+      else if (this.CurrentTime.Hour >= 22 || this.CurrentTime.Hour <= 6)
+        greeting = "Good night";
 
       return greeting;
     }
