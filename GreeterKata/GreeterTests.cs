@@ -36,9 +36,12 @@ namespace GreeterKata
     [Fact]
     public void GivenNameAtMorning_ReturnsGoodMorningGreeting()
     {
-      this.greeter.CurrentTime = this.TodaysDateAtTime(9);
-      this.greeter.Greet("Bob")
-        .Should().Be("Good morning Bob.");
+      for (var i = 6; i <= 12; i++)
+      {
+        this.greeter.CurrentTime = this.TodaysDateAtTime(i);
+        this.greeter.Greet("Bob")
+          .Should().Be("Good morning Bob.");
+      }
     }
   }
 }
