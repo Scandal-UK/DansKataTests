@@ -45,7 +45,7 @@ namespace GreeterKata
     }
 
     [Fact]
-    public void GivenNameInEvening_ReturnGoodEveningGreeting()
+    public void GivenNameInEvening_ReturnsGoodEveningGreeting()
     {
       for (var i = 18; i < 22; i++)
       {
@@ -56,7 +56,7 @@ namespace GreeterKata
     }
 
     [Fact]
-    public void GivenNameAtNight_ReturnGoodNightGreeting()
+    public void GivenNameAtNight_ReturnsGoodNightGreeting()
     {
       var date = this.TodaysDateAtTime(22);
       while (date < this.TodaysDateAtTime(22).AddHours(8))
