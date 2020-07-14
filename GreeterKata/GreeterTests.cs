@@ -68,5 +68,16 @@ namespace GreeterKata
         date = date.AddHours(1);
       }
     }
+
+    [Fact]
+    public void GivenNameAtOtherTimes_ShouldReturnUsualGreeting()
+    {
+      for (var i = 12; i < 18; i++)
+      {
+        this.greeter.CurrentTime = this.TodaysDateAtTime(i);
+        this.greeter.Greet("Bob")
+          .Should().Be("Hello Bob.");
+      }
+    }
   }
 }
