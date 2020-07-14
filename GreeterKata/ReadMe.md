@@ -17,3 +17,9 @@ All tests should always pass, regardless of environment conditions.
 7. `greet` logs into console each time it is called
 
 Source: https://github.com/wix/tdd-katas
+
+----
+
+#### Conclusion
+
+This seems mostly pointless other than proving that you must extract the current time to a variable in order to make it test-able. This of course, prevents the resulting method from being a static one due to its dependency on the target date/time.
