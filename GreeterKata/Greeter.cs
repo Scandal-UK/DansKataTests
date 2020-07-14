@@ -4,7 +4,7 @@
   {
     public static string Greet(string name)
     {
-      return $"Hello {name}.";
+      return $"Hello {name.Trim()}.";
     }
   }
 }

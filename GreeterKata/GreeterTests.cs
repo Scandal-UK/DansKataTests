@@ -11,5 +11,12 @@ namespace GreeterKata
       Greeter.Greet("Bob")
         .Should().Be("Hello Bob.");
     }
+
+    [Fact]
+    public void GivenSpaces_ReturnsTrimmedGreeting()
+    {
+      Greeter.Greet("  Bob ")
+        .Should().Be("Hello Bob.");
+    }
   }
 }
