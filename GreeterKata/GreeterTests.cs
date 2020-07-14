@@ -8,9 +8,7 @@ namespace GreeterKata
   {
     private readonly Greeter greeter;
 
-    public GreeterTests() => this.greeter = new Greeter(this.TodaysDateAtHour(13));
-
-    private DateTime TodaysDateAtHour(int hour) => new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day, hour, 0, 0);
+    public GreeterTests() => this.greeter = new Greeter(Greeter.TodaysDateAtTime(13, 0));
 
     [Fact]
     public void GivenName_ReturnsGreeting()
@@ -38,9 +36,20 @@ namespace GreeterKata
     {
       for (var i = 6; i < 12; i++)
       {
-        this.greeter.CurrentTime = this.TodaysDateAtHour(i);
+        this.greeter.CurrentTime = Greeter.TodaysDateAtTime(i, 0);
         this.greeter.Greet("Bob")
           .Should().Be("Good morning Bob.");
+      }
+    }
+
+    [Fact]
+    public void GivenNameInEvening_ReturnGoodEveningGreeting()
+    {
+      for (var i = 18; i < 22; i++)
+      {
+        this.greeter.CurrentTime = Greeter.TodaysDateAtTime(i, 0);
+        this.greeter.Greet("Bob")
+          .Should().Be("Good evening Bob.");
       }
     }
   }
