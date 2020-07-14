@@ -13,25 +13,26 @@ namespace GreeterKata
     private DateTime TodaysDateAtTime(int hour) => new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day, hour, 0, 0);
 
     [Fact]
-    public void GivenName_ReturnsGreeting()
+    public void GivenNull_ShouldThrowNullReferenceException()
     {
+      Action act = () => this.greeter.Greet(null);
+      act.Should().Throw<NullReferenceException>();
+    }
+
+    [Fact]
+    public void GivenName_ReturnsGreeting() =>
       this.greeter.Greet("Bob")
         .Should().Be("Hello Bob.");
-    }
 
     [Fact]
-    public void GivenSpaces_ReturnsTrimmedGreeting()
-    {
+    public void GivenSpaces_ReturnsTrimmedGreeting() =>
       this.greeter.Greet("  Bob ")
         .Should().Be("Hello Bob.");
-    }
 
     [Fact]
-    public void GivenLowerCase_ShouldCapitiliseFirstCharacter()
-    {
+    public void GivenLowerCase_ShouldCapitiliseFirstCharacter() =>
       this.greeter.Greet("bob")
         .Should().Be("Hello Bob.");
-    }
 
     [Fact]
     public void GivenNameAtMorning_ReturnsGoodMorningGreeting()
