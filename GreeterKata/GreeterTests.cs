@@ -1,5 +1,6 @@
 namespace GreeterKata
 {
+  using System;
   using FluentAssertions;
   using Xunit;
 
@@ -7,7 +8,9 @@ namespace GreeterKata
   {
     private readonly Greeter greeter;
 
-    public GreeterTests() => this.greeter = new Greeter();
+    public GreeterTests() => this.greeter = new Greeter(this.TodaysDateAtTime(13));
+
+    private DateTime TodaysDateAtTime(int hour) => new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day, hour, 0, 0);
 
     [Fact]
     public void GivenName_ReturnsGreeting()
@@ -28,6 +31,14 @@ namespace GreeterKata
     {
       this.greeter.Greet("bob")
         .Should().Be("Hello Bob.");
+    }
+
+    [Fact]
+    public void GivenNameAtMorning_ReturnsGoodMorningGreeting()
+    {
+      this.greeter.CurrentTime = this.TodaysDateAtTime(9);
+      this.greeter.Greet("Bob")
+        .Should().Be("Good morning Bob.");
     }
   }
 }
