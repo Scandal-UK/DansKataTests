@@ -6,8 +6,13 @@
   {
     public static string Greet(string name)
     {
+      return $"Hello {CleanName(name)}.";
+    }
+
+    private static string CleanName(string name)
+    {
       TextInfo ti = new CultureInfo("en-GB", false).TextInfo;
-      return $"Hello {ti.ToTitleCase(name.Trim())}.";
+      return ti.ToTitleCase(name.Trim());
     }
   }
 }
