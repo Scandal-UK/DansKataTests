@@ -5,24 +5,28 @@ namespace GreeterKata
 
   public class GreeterTests
   {
+    private readonly Greeter greeter;
+
+    public GreeterTests() => this.greeter = new Greeter();
+
     [Fact]
     public void GivenName_ReturnsGreeting()
     {
-      Greeter.Greet("Bob")
+      this.greeter.Greet("Bob")
         .Should().Be("Hello Bob.");
     }
 
     [Fact]
     public void GivenSpaces_ReturnsTrimmedGreeting()
     {
-      Greeter.Greet("  Bob ")
+      this.greeter.Greet("  Bob ")
         .Should().Be("Hello Bob.");
     }
 
     [Fact]
     public void GivenLowerCase_ShouldCapitiliseFirstCharacter()
     {
-      Greeter.Greet("bob")
+      this.greeter.Greet("bob")
         .Should().Be("Hello Bob.");
     }
   }
